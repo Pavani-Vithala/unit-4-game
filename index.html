@@ -1,77 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Crystal Collector: The Game</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap File -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Collector: The Game</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
 
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
 
-  </head>
+</head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
     <!-- Jumbotron with Title -->
     <div class="jumbotron">
-      <h1 class="text-left">
+      <h1 class="text-left" id="Heading">
         <strong>Crystals Collector</strong>
       </h1>
       <hr>
       <div class="row">
 
-      <div class="col-lg-6">
-            <p>
-                You will be given a random number at the start of the game.<br><br>
-                There are 4 crystals below.By clicking ona  crystal, you will add<br>
-                specific amount of points to your total score.<br><br>
-                You win the game by matching your total score to the random number.You lose the <br>
-                game if your total score goes above the random number.<br><br>
-                The value of each crystal is hidden from you until you click on it.<br><br>
-                Each time when the game starts, the game will change the values of each crystal.<br><br><br>
-             </p>
-             </div>
-             </div>
-<div class="row">
-    <div class="col-lg-4" id = "randNum">
-        
-    </div>
-    <div class="col-lg-4" id = "WinLoss">
-        <h2 id = "wins">Wins</h2>
-        <br>
-        <h3 id = "Loses">Loses</h3>
-        <br>
-        <br>
-    </div>
-</div>
-<div class="row">
-
-
-
-
-
-
-
-</div>
-        
-
-        <!-- Controls (Superpower Grow/Shrink)-->
-        <div id="sizeControls" class="card">
-          <h4 class="card-header">Superpowers - Change Sizes!</h4>
-          <div class="card-body">
-            <div class="text-center">
-              <button class="btn btn-dark btn-lg normal-button">
-                <span class="fa fa-ok"></span> Normal</button>
-              <button class="btn btn-primary btn-lg grow-button">
-                <span class="fa fa-plus"></span> Grow</button>
-              <button class="btn btn-danger btn-lg shrink-button">
-                <span class="fa fa-minus"></span> Shrink</button>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-12">
+              <p><b>
+                You will be given a random number at the start of the game.<br>
+                There are 4 crystals below.By clicking ona crystal, you will add
+                specific amount of points to your total score.<br>
+                You win the game by matching your total score to the random number.You lose the 
+                game if your total score goes above the random number.<br>
+                The value of each crystal is hidden from you until you click on it.
+                Each time when the game starts, the game will change the values of each crystal.</b>
+              </p>
             </div>
           </div>
+          <div class="row">
+            <div class="col-lg-4" >
+                <h2 id="randNum">0</h2>
+            </div>
+            <div class="col-lg-4" id="WinLoss">
+              <h4 id="wins">Wins:</h4>
+              <br>
+              <h4 id="Loses">Loses:</h4>
+              <br>
+              <br>
+            </div>
+          </div>
+
+
         </div>
+      </div>
+    </div>
+
+  </body>
+  </html>

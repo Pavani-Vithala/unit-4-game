@@ -1,16 +1,30 @@
 body{
-   background-color:teal; 
+   background-image:url("https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0533%2F2089%2Ffiles%2F5-websites-to-download-free-subtle-textures-subtle.jpg%3F5724472906039650661&imgrefurl=https%3A%2F%2Fwww.shopify.com%2Fpartners%2Fblog%2F5-websites-to-download-free-subtle-textures-and-gradients-for-flat-design-2-0&docid=pdf1txtVsJP6pM&tbnid=LVebWvZzYMUhuM%3A&vet=10ahUKEwjIqsHizIbeAhWptlkKHTR2ArAQMwhCKAIwAg..i&w=727&h=350&bih=709&biw=1600&q=free%20patterns%20for%20background%20images&ved=0ahUKEwjIqsHizIbeAhWptlkKHTR2ArAQMwhCKAIwAg&iact=mrc&uact=8") 
 }
 h1{
         background-color: orange;
         text-align: center;
         padding-top: 10px;   
         font-size: 35px;
+        width:300px;
     }
 
 #randNum{
-    border-width: 1px;
-    width:25px;
-    height: 25px;
-    border-color: black
+    border-width:1px;
+    width:130px;
+    height: 80px;
+    border-color: black;
+    border:solid;
+}
+p{
+    font-family: "Times New Roman", Times, serif;
+    border-width:1px;
+    border:solid;
+}
+#WinLoss{
+    border-width:2px;
+    width:100px;
+    height: 100px;
+    border-color: black;
+    border:solid;
 }
