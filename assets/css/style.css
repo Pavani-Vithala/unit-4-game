@@ -1,0 +1,16 @@
+body{
+   background-color:teal; 
+}
+h1{
+        background-color: orange;
+        text-align: center;
+        padding-top: 10px;   
+        font-size: 35px;
+    }
+
+#randNum{
+    border-width: 1px;
+    width:25px;
+    height: 25px;
+    border-color: black
+}
