@@ -60,4 +60,13 @@ p{
     width:350px;
     height: 100px;
 }
-
+#winCount{
+background-color: blue;
+margin-left:10px;
+border:none;
+}
+#lossCount{
+    background-color: blue;
+    margin-left:10px;
+    border:none;
+}

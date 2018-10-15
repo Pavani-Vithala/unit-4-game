@@ -1,108 +1,90 @@
 
   var wins=0;
   var loses=0;
- // JavaScript function that wraps everything
+  var score = 0;
+  // JavaScript function that wraps everything
  $(document).ready(function() { 
   initialize();
 //Function to add numbers to current score
 function initialize()
 {   
   console.log("Entering initialize function:");
-$("#Count").text(0);
+  //var winCount = $("#Count").text();
   
    //Sets a random number between 1 and 100
-   var rnum = (Math.floor(Math.random() * 50))+50;
-   console.log("The random number generated is :"+rnum);
+   var rnum = Math.floor(Math.random() * 102+19);
    $("#randNum").text(rnum);
    //Sets a random value between 1 and 50 for pink Crystal
-       var pCrysVal =  Math.floor(Math.random() * 50);
-       console.log("The random number generated for PinkCrystal :"+pCrysVal);
+       var pCrysVal =  Math.floor(Math.random() * 12+1);
        $("#PCrys").val(pCrysVal);
        //Sets a random value between 1 and 50 for Green Crystal
-       var gCrysVal =  Math.floor(Math.random() * 50);
-       console.log("The random number generated for GreenCrystal :"+gCrysVal);
-       $("#GCrys").val(pCrysVal);
+       var gCrysVal =  Math.floor(Math.random() * 12+1);
+       $("#GCrys").val(gCrysVal);
        //Sets a random value between 1 and 50 for Blue Crystal
-       var bCrysVal =  Math.floor(Math.random() * 50);
-       console.log("The random number generated for BlueCrystal :"+bCrysVal);
+       var bCrysVal =  Math.floor(Math.random() * 12+1);
        $("#BCrys").val(bCrysVal);
        //Sets a random value between 1 and 50 for Yellow Crystal
-       var yCrysVal =  Math.floor(Math.random() * 50);
-       console.log("The random number generated for YelloCrystal :"+yCrysVal);
+       var yCrysVal =  Math.floor(Math.random() * 12+1);
        $("#YCrys").val(yCrysVal);
-      var pClicked = 0;
-      var gClicked = 0;
-      var bClicked = 0;
-      var yClicked = 0;
-} 
-//call function initialize
-
-
-
-      //functions to add the total score
+       $("#Count").text(0);
+       $("#winCount").text(wins);
+       $("#lossCount").text(loses);
+       
+}
+       //functions to add the total score
       function scoreCalc(val)
       {
-        var Score =  $("#Count").text();
-        var calcScore = parseInt(Score)+ parseInt(val);
+        score =  $("#Count").text();
+        console.log("the score is "+score);
+        var calcScore = parseInt(score)+ parseInt(val);
+        var rnum = $("#randNum").text();
+        console.log("The value of rnum is "+rnum);
+        console.log("the value of calcScore is :"+calcScore);
         $("#Count").text(calcScore);
-      }
-      function winLoss()
-      {
-        var rnum = $("#randNum").val();
-        var Count = $("#Count").text();
-        
-        if (Count > rnum)
+        if (parseInt(calcScore) > parseInt(rnum))
         {
-          loses = loses + 1;
-          $("#Loses").text(loses);
+           loses = parseInt(loses) + 1;
+          $("#lossCount").text(loses);
           console.log("You lost:");
           initialize();
         }
-        if(Count == rnum)
+        if(parseInt(calcScore) === parseInt(rnum))
         {
-          wins = wins + 1;
-          $("#wins").text(wins);
+          wins = parseInt(wins) + 1;
+          $("#winCount").text(wins);
           console.log("You won:");
           initialize();
         }
-      }      
-
+      }
+        
+      
       $("#PCrys").on("click", function() {
-        pClicked = 1;
         var pScore = $("#PCrys").val();
-        winLoss();
         scoreCalc(pScore);
+        
         
       });
 
       $("#BCrys").on("click", function() {
-        bClicked = 1;
         var bScore = $("#BCrys").val();
-        winLoss();
         scoreCalc(bScore);
+        
         
       });
 
       $("#GCrys").on("click", function() {
-        gClicked = 1;
         var gScore = $("#GCrys").val();
-        winLoss();
         scoreCalc(gScore);
-        
+      
       });
 
       $("#YCrys").on("click", function() {
-        yClicked = 1;
         var yScore = $("#YCrys").val();
-        winLoss();
         scoreCalc(yScore);
+        
        
       });
 
-      
-     
-
-
-      });
+ });
 
   
