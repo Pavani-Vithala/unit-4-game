@@ -1,150 +1,108 @@
-<!-- Controls (Superpower Visibility) -->
-          <div id="visibilityControls" class="card">
-            <h4 class="card-header">Superpowers - Invisiblity!</h4>
-            <div class="card-body">
-              <div class="text-center">
-                <button class="btn btn-dark btn-lg vis-button">
-                  <span class="fa fa-eye"></span> Visible</button>
-                <button class="btn btn-info btn-lg invis-button">
-                  <span class="fa fa-eye-slash"></span> Invisible</button>
-              </div>
-            </div>
-          </div>
 
-          <!-- Controls (Stretch) -->
-          <div id="stretchControls" class="card">
-            <h4 class="card-header">Superpowers - Stretch!</h4>
-            <div class="card-body">
-              <div class="text-center">
-                <button class="btn btn-dark btn-lg unstretch-btn">
-                  <span class="fa fa-compress"></span> Normal</button>
-                <button class="btn btn-primary btn-lg stretch-btn">
-                  <span class="fa fa-expand"></span> Stretch</button>
-              </div>
-            </div>
-          </div>
+  var wins=0;
+  var loses=0;
+ // JavaScript function that wraps everything
+ $(document).ready(function() { 
+  initialize();
+//Function to add numbers to current score
+function initialize()
+{   
+  console.log("Entering initialize function:");
+$("#Count").text(0);
+  
+   //Sets a random number between 1 and 100
+   var rnum = (Math.floor(Math.random() * 50))+50;
+   console.log("The random number generated is :"+rnum);
+   $("#randNum").text(rnum);
+   //Sets a random value between 1 and 50 for pink Crystal
+       var pCrysVal =  Math.floor(Math.random() * 50);
+       console.log("The random number generated for PinkCrystal :"+pCrysVal);
+       $("#PCrys").val(pCrysVal);
+       //Sets a random value between 1 and 50 for Green Crystal
+       var gCrysVal =  Math.floor(Math.random() * 50);
+       console.log("The random number generated for GreenCrystal :"+gCrysVal);
+       $("#GCrys").val(pCrysVal);
+       //Sets a random value between 1 and 50 for Blue Crystal
+       var bCrysVal =  Math.floor(Math.random() * 50);
+       console.log("The random number generated for BlueCrystal :"+bCrysVal);
+       $("#BCrys").val(bCrysVal);
+       //Sets a random value between 1 and 50 for Yellow Crystal
+       var yCrysVal =  Math.floor(Math.random() * 50);
+       console.log("The random number generated for YelloCrystal :"+yCrysVal);
+       $("#YCrys").val(yCrysVal);
+      var pClicked = 0;
+      var gClicked = 0;
+      var bClicked = 0;
+      var yClicked = 0;
+} 
+//call function initialize
 
-          <!-- Controls (Superpower Move Controls) -->
-          <div id="moveControls" class="card">
-            <h4 class="card-header">Move Controls</h4>
-            <div class="card-body">
-              <div class="text-center mb-1">
-                <button class="btn btn-dark btn-lg fa fa-arrow-up up-button">Up</button>
-              </div>
-              <div class="text-center">
-                <button class="btn btn-dark btn-lg fa fa-arrow-left left-button">Left</button>
-                <button class="btn btn-dark btn-lg fa fa-arrow-down down-button">Down</button>
-                <button class="btn btn-dark btn-lg fa fa-arrow-right right-button">Right</button>
-              </div>
-              <br>
-              <div class="text-center">
-                <button class="btn btn-dark btn-lg back-button">
-                  <span class="fa fa-comment"></span> Go Planet!</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Right Card (Captain Planet Hero)-->
-        <div class="col-lg-6">
 
-          <!-- Captain Planet Image -->
-          <img src="assets/captain-planet.jpg" alt="" class="img captain-planet" style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
-        </div>
-      </div>
-    </div>
+      //functions to add the total score
+      function scoreCalc(val)
+      {
+        var Score =  $("#Count").text();
+        var calcScore = parseInt(Score)+ parseInt(val);
+        $("#Count").text(calcScore);
+      }
+      function winLoss()
+      {
+        var rnum = $("#randNum").val();
+        var Count = $("#Count").text();
+        
+        if (Count > rnum)
+        {
+          loses = loses + 1;
+          $("#Loses").text(loses);
+          console.log("You lost:");
+          initialize();
+        }
+        if(Count == rnum)
+        {
+          wins = wins + 1;
+          $("#wins").text(wins);
+          console.log("You won:");
+          initialize();
+        }
+      }      
 
-    <script>
-
-      // JavaScript function that wraps everything
-      $(document).ready(function() {
-
-        var captainPlanet = $(".captain-planet");
-
-        // Gets Link for Theme Song
-        var audioElement = document.createElement("audio");
-        audioElement.setAttribute("src", "assets/captainplanet24.mp3");
-
-        // Theme Button
-        $(".theme-button").on("click", function() {
-          audioElement.play();
-        });
-        $(".pause-button").on("click", function() {
-          audioElement.pause();
-        });
-
-        // Size Buttons
-        $(".normal-button").on("click", function() {
-          captainPlanet.animate({ height: "300px" });
-        });
-        $(".grow-button").on("click", function() {
-          captainPlanet.animate({ height: "500px" });
-        });
-        $(".shrink-button").on("click", function() {
-          captainPlanet.animate({ height: "100px" });
-        });
-
-        // Visibility Buttons
-        $(".vis-button").on("click", function() {
-          captainPlanet.animate({ opacity: "1" });
-        });
-        $(".invis-button").on("click", function() {
-          captainPlanet.animate({ opacity: "0.05" });
-        });
-
-        // Stretch Buttons
-        $(".stretch-btn").on("click", function() {
-          captainPlanet.animate({ height: "1000px", width: "200px" });
-        });
-        $(".unstretch-btn").on("click", function() {
-          captainPlanet.animate({ height: "300px", width: "450px" });
-        });
-
-        // Move Buttons
-        $(".up-button").on("click", function() {
-          captainPlanet.animate({ top: "-=200px" }, "normal");
-        });
-        $(".down-button").on("click", function() {
-          captainPlanet.animate({ top: "+=200px" }, "normal");
-        });
-        $(".left-button").on("click", function() {
-          captainPlanet.animate({ left: "-=200px" }, "normal");
-        });
-        $(".right-button").on("click", function() {
-          captainPlanet.animate({ left: "+=200px" }, "normal");
-        });
-        $(".back-button").on("click", function() {
-          captainPlanet.animate({ top: "50px", left: "80px" }, "fast");
-        });
-
-        // Keyboard move controls
-        $(document).keyup(function(e) {
-          switch (e.which) {
-
-          // Move Buttons (Keyboard Down)
-          case 40:
-            captainPlanet.animate({ top: "+=200px" }, "normal");
-            break;
-
-            // Move Buttons (Keyboard Right)
-          case 39:
-            captainPlanet.animate({ left: "+=200px" }, "normal");
-            break;
-
-            // Move Buttons (Keyboard Up)
-          case 38:
-            captainPlanet.animate({ top: "-=200px" }, "normal");
-            break;
-
-            // Move Buttons (Keyboard Left)
-          case 37:
-            captainPlanet.animate({ left: "-=200px" }, "normal");
-            break;
-
-          default:
-            break;
-          }
-        });
+      $("#PCrys").on("click", function() {
+        pClicked = 1;
+        var pScore = $("#PCrys").val();
+        winLoss();
+        scoreCalc(pScore);
+        
       });
 
-    </script>
+      $("#BCrys").on("click", function() {
+        bClicked = 1;
+        var bScore = $("#BCrys").val();
+        winLoss();
+        scoreCalc(bScore);
+        
+      });
+
+      $("#GCrys").on("click", function() {
+        gClicked = 1;
+        var gScore = $("#GCrys").val();
+        winLoss();
+        scoreCalc(gScore);
+        
+      });
+
+      $("#YCrys").on("click", function() {
+        yClicked = 1;
+        var yScore = $("#YCrys").val();
+        winLoss();
+        scoreCalc(yScore);
+       
+      });
+
+      
+     
+
+
+      });
+
+  
