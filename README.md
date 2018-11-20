@@ -27,4 +27,6 @@ Here's how the app works:
 
 * Each crystal should have a random hidden value between 1 - 12.
 
-The game can be found at the 
+The game can be found at the link https://pavani-vithala.github.io/unit-4-game/.
+
+The app is maintained by Pavani Vithala wo can be reached at pavani.vithala18@gmail.com
